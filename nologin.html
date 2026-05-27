@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Viquinho AI v1.2</title>
+
+  <script src="https://js.puter.com/v2/"></script>
+
+  <style>
+    :root {
+      --bg: #eef4ff;
+      --chat: #ffffff;
+      --header: #4d8dff;
+      --header2: #2563eb;
+      --text: #111827;
+      --user: #4d8dff;
+      --userText: #fff;
+      --bot: #f5f7ff;
+      --border: #dbe7ff;
+      --input: #ffffff;
+    }
+
+    body.dark {
+      --bg: #0b1220;
+      --chat: #111827;
+      --header: #111827;
+      --header2: #1f2937;
+      --text: #f9fafb;
+      --user: #2563eb;
+      --userText: #fff;
+      --bot: #1c2740;
+      --border: #31415f;
+      --input: #182235;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Segoe UI, sans-serif;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .app {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      height: 72px;
+      background: linear-gradient(135deg, var(--header), var(--header2));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      color: white;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,.15);
+      color: white;
+      font-size: 20px;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--bg);
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .user {
+      align-self: flex-end;
+      background: var(--user);
+      color: white;
+      border-bottom-right-radius: 6px;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background: var(--bot);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 6px;
+    }
+
+    .typing {
+      display: none;
+      padding: 14px;
+      background: var(--bot);
+      border: 1px solid var(--border);
+      width: fit-content;
+      border-radius: 16px;
+    }
+
+    .input-area {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      background: var(--chat);
+    }
+
+    .input-box {
+      display: flex;
+      gap: 12px;
+    }
+
+    .input-box input {
+      flex: 1;
+      height: 58px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--input);
+      color: var(--text);
+      padding: 0 18px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .send {
+      width: 58px;
+      height: 58px;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(135deg,#4d8dff,#2563eb);
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 500px;
+      background: var(--chat);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .modal-box label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .modal-box select,
+    .modal-box textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--input);
+      color: var(--text);
+      padding: 14px;
+      outline: none;
+    }
+
+    .modal-box textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .close {
+      width: 100%;
+      height: 52px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg,#4d8dff,#2563eb);
+      color: white;
+      cursor: pointer;
+    }
+
+    a {
+      color: #60a5fa;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+
+    <div class="title">
+      Viquinho AI
+    </div>
+
+    <div class="buttons">
+      <button class="icon-btn" id="themeBtn">🌙</button>
+      <button class="icon-btn" id="settingsBtn">⚙️</button>
+    </div>
+
+  </div>
+
+  <div class="messages" id="messages">
+
+    <div class="typing" id="typing">
+      Digitando...
+    </div>
+
+  </div>
+
+  <div class="input-area">
+
+    <div class="input-box">
+
+      <input
+        type="text"
+        id="input"
+        placeholder="Digite sua mensagem..."
+      >
+
+      <button class="send" id="sendBtn">
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="modal" id="modal">
+
+  <div class="modal-box">
+
+    <h2>⚙️ Configurações</h2>
+
+    <label>Modelo</label>
+
+    <select id="model">
+      <option value="gpt-5.3-chat">GPT-5.3 Chat</option>
+      <option value="claude-sonnet-4">Claude Sonnet 4</option>
+      <option value="gemini-2.5-flash-lite">Gemini Flash Lite</option>
+      <option value="deepseek-chat">DeepSeek Chat</option>
+    </select>
+
+    <label>Prompt</label>
+
+    <textarea id="prompt">Você é Viquinho AI 🤖
+
+Uma IA moderna, amigável e inteligente.
+
+Use emojis quando fizer sentido 😎🔥✨
+
+Respostas naturais e diretas.</textarea>
+
+    <button class="close" id="closeModal">
+      Fechar
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+  const messages = document.getElementById("messages");
+  const input = document.getElementById("input");
+  const sendBtn = document.getElementById("sendBtn");
+  const typing = document.getElementById("typing");
+
+  const themeBtn = document.getElementById("themeBtn");
+
+  const modal = document.getElementById("modal");
+  const settingsBtn = document.getElementById("settingsBtn");
+  const closeModal = document.getElementById("closeModal");
+
+  const model = document.getElementById("model");
+  const promptEl = document.getElementById("prompt");
+
+  let conversation = [];
+
+  async function initPuter() {
+
+    try {
+
+      if (!puter.auth.isSignedIn()) {
+
+        await puter.auth.signInAnonymously();
+
+      }
+
+      addMessage("👋 Olá! Eu sou o Viquinho AI.", "bot");
+
+    } catch (err) {
+
+      addMessage("❌ Erro ao conectar no Puter.", "bot");
+
+      console.error(err);
+
+    }
+
+  }
+
+  initPuter();
+
+  function saveConversation() {
+
+    localStorage.setItem(
+      "viquinho_conversation",
+      JSON.stringify(conversation)
+    );
+
+  }
+
+  function loadConversation() {
+
+    const saved = localStorage.getItem("viquinho_conversation");
+
+    if (!saved) return;
+
+    try {
+
+      conversation = JSON.parse(saved);
+
+      for (const msg of conversation) {
+
+        addMessage(
+          msg.content,
+          msg.role === "user" ? "user" : "bot"
+        );
+
+      }
+
+    } catch (e) {
+
+      console.error(e);
+
+    }
+
+  }
+
+  loadConversation();
+
+  function addMessage(text, type) {
+
+    const div = document.createElement("div");
+
+    div.className =
+      "message " + (type === "user" ? "user" : "bot");
+
+    div.innerHTML = formatText(text);
+
+    messages.insertBefore(div, typing);
+
+    messages.scrollTop = messages.scrollHeight;
+
+  }
+
+  function formatText(text) {
+
+    return text
+
+      .replace(
+        /(https?:\/\/[^\s]+)/g,
+        '<a href="$1" target="_blank">$1</a>'
+      )
+
+      .replace(/\n/g, "<br>");
+
+  }
+
+  function showTyping() {
+
+    typing.style.display = "block";
+
+  }
+
+  function hideTyping() {
+
+    typing.style.display = "none";
+
+  }
+
+  async function sendMessage() {
+
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    addMessage(text, "user");
+
+    conversation.push({
+      role: "user",
+      content: text
+    });
+
+    saveConversation();
+
+    input.value = "";
+
+    showTyping();
+
+    try {
+
+      const response = await puter.ai.chat(
+
+        [
+          {
+            role: "system",
+            content: promptEl.value
+          },
+
+          ...conversation
+
+        ],
+
+        {
+          model: model.value,
+          stream: true
+        }
+
+      );
+
+      hideTyping();
+
+      const botDiv = document.createElement("div");
+
+      botDiv.className = "message bot";
+
+      messages.insertBefore(botDiv, typing);
+
+      let finalText = "";
+
+      for await (const part of response) {
+
+        if (part?.text) {
+
+          finalText += part.text;
+
+          botDiv.innerHTML = formatText(finalText);
+
+          messages.scrollTop = messages.scrollHeight;
+
+        }
+
+      }
+
+      conversation.push({
+        role: "assistant",
+        content: finalText
+      });
+
+      saveConversation();
+
+    } catch (err) {
+
+      hideTyping();
+
+      addMessage(
+        "❌ Erro: " + err.message,
+        "bot"
+      );
+
+      console.error(err);
+
+    }
+
+  }
+
+  sendBtn.onclick = sendMessage;
+
+  input.addEventListener("keydown", (e) => {
+
+    if (e.key === "Enter") {
+
+      sendMessage();
+
+    }
+
+  });
+
+  themeBtn.onclick = () => {
+
+    document.body.classList.toggle("dark");
+
+  };
+
+  settingsBtn.onclick = () => {
+
+    modal.style.display = "flex";
+
+  };
+
+  closeModal.onclick = () => {
+
+    modal.style.display = "none";
+
+  };
+
+  modal.onclick = (e) => {
+
+    if (e.target === modal) {
+
+      modal.style.display = "none";
+
+    }
+
+  };
+
+</script>
+
+</body>
+
+</html>

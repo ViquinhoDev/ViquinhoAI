@@ -1,110 +1,163 @@
-ViquinhoAI 🤖
+# ViquinhoAI 🤖
 
 Uma IA moderna feita para conversar, ajudar, programar e criar experiências na web.
 
-✨ Sobre
+---
+
+## ✨ Sobre
 
 O ViquinhoAI é um projeto de inteligência artificial focado em:
+- Conversas naturais
+- Interface moderna
+- Programação web
+- Integração com APIs
+- Chat em tempo real
+- Experiência rápida e leve
 
-Conversas naturais
-Interface moderna
-Programação web
-Integração com APIs
-Chat em tempo real
-Experiência rápida e leve
+Criado por **ViquinhoDev**.
 
-Criado por ViquinhoDev.
+---
 
-🚀 Funcionalidades
-💬 Chat inteligente
-🌎 Suporte a múltiplos idiomas
-📂 Upload de arquivos
-🔗 Links clicáveis
-💾 Salvamento de conversas
-😀 Sistema de emojis
-📱 Interface responsiva
-⚡ Rápido e simples
-🎨 Visual moderno
-☁️ Integração com Supabase
-🤖 Integração com Puter AI
-🛠️ Tecnologias
-HTML5
-CSS3
-JavaScript
-Supabase
-Puter.js
-📸 Preview
+## 🚀 Funcionalidades
+
+- 💬 Chat inteligente
+- 🌎 Suporte a múltiplos idiomas
+- 📂 Upload de arquivos
+- 🔗 Links clicáveis
+- 💾 Salvamento de conversas
+- 😀 Sistema de emojis
+- 📱 Interface responsiva
+- ⚡ Rápido e simples
+- 🎨 Visual moderno
+- ☁️ Integração com Supabase
+- 🤖 Integração com Puter AI
+
+---
+
+## 🛠️ Tecnologias
+
+- HTML5
+- CSS3
+- JavaScript
+- Supabase
+- Puter.js
+
+---
+
+## 📸 Preview
 
 Adicione screenshots aqui depois.
 
 ![preview](./preview.png)
-📦 Instalação
+
+---
+
+## 📦 Instalação
 
 Clone o projeto:
 
+```bash
 git clone https://github.com/SEU-USUARIO/viquinhoai.git
+```
 
 Entre na pasta:
 
+```bash
 cd viquinhoai
+```
 
 Abra o arquivo:
 
+```bash
 index.html
-⚙️ Configuração
-Supabase
+```
+
+---
+
+## ⚙️ Configuração
+
+### Supabase
 
 Edite:
 
+```js
 const SUPABASE_URL = "SUA_URL";
 const SUPABASE_KEY = "SUA_KEY";
-Puter AI
+```
+
+### Puter AI
 
 Importe:
 
+```html
 <script src="https://js.puter.com/v2/"></script>
-📁 Estrutura
+```
+
+---
+
+## 📁 Estrutura
+
+```txt
 📦 viquinhoai
  ┣ 📜 index.html
  ┣ 📜 style.css
  ┣ 📜 script.js
  ┣ 📂 assets
  ┗ 📜 README.md
-🌍 Idiomas
-Português 🇧🇷
-English 🇺🇸
-Español 🇪🇸
-Italiano 🇮🇹
-👨‍💻 Desenvolvedor
-ViquinhoDev
+```
+
+---
+
+## 🌍 Idiomas
+
+- Português 🇧🇷
+- English 🇺🇸
+- Español 🇪🇸
+- Italiano 🇮🇹
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+### ViquinhoDev
 
 Programador focado em:
+- Sites modernos
+- Interfaces web
+- Bots
+- Jogos
+- Scripts
+- IA
 
-Sites modernos
-Interfaces web
-Bots
-Jogos
-Scripts
-IA
-📜 Licença
+---
+
+## 📜 Licença
 
 Este projeto está sob a licença MIT.
 
-⭐ Apoie o projeto
+---
+
+## ⭐ Apoie o projeto
 
 Se gostou do projeto:
+- Dê uma estrela ⭐
+- Compartilhe
+- Faça um fork
 
-Dê uma estrela ⭐
-Compartilhe
-Faça um fork
-💡 Futuras Atualizações
-Sistema de contas
-Temas personalizados
-Chamada por voz
-IA com memória
-Aplicativo desktop
-App mobile
-Plugins
-Painel admin
-ViquinhoAI
-Modern AI for the web 🚀
+---
+
+## 💡 Futuras Atualizações
+
+- Sistema de contas
+- Temas personalizados
+- Chamada por voz
+- IA com memória
+- Aplicativo desktop
+- App mobile
+- Plugins
+- Painel admin
+
+---
+
+# ViquinhoAI
+### Modern AI for the web 🚀

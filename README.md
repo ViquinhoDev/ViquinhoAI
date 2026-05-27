@@ -1,1 +1,110 @@
-# ViquinhoAI
+ViquinhoAI 🤖
+
+Uma IA moderna feita para conversar, ajudar, programar e criar experiências na web.
+
+✨ Sobre
+
+O ViquinhoAI é um projeto de inteligência artificial focado em:
+
+Conversas naturais
+Interface moderna
+Programação web
+Integração com APIs
+Chat em tempo real
+Experiência rápida e leve
+
+Criado por ViquinhoDev.
+
+🚀 Funcionalidades
+💬 Chat inteligente
+🌎 Suporte a múltiplos idiomas
+📂 Upload de arquivos
+🔗 Links clicáveis
+💾 Salvamento de conversas
+😀 Sistema de emojis
+📱 Interface responsiva
+⚡ Rápido e simples
+🎨 Visual moderno
+☁️ Integração com Supabase
+🤖 Integração com Puter AI
+🛠️ Tecnologias
+HTML5
+CSS3
+JavaScript
+Supabase
+Puter.js
+📸 Preview
+
+Adicione screenshots aqui depois.
+
+![preview](./preview.png)
+📦 Instalação
+
+Clone o projeto:
+
+git clone https://github.com/SEU-USUARIO/viquinhoai.git
+
+Entre na pasta:
+
+cd viquinhoai
+
+Abra o arquivo:
+
+index.html
+⚙️ Configuração
+Supabase
+
+Edite:
+
+const SUPABASE_URL = "SUA_URL";
+const SUPABASE_KEY = "SUA_KEY";
+Puter AI
+
+Importe:
+
+<script src="https://js.puter.com/v2/"></script>
+📁 Estrutura
+📦 viquinhoai
+ ┣ 📜 index.html
+ ┣ 📜 style.css
+ ┣ 📜 script.js
+ ┣ 📂 assets
+ ┗ 📜 README.md
+🌍 Idiomas
+Português 🇧🇷
+English 🇺🇸
+Español 🇪🇸
+Italiano 🇮🇹
+👨‍💻 Desenvolvedor
+ViquinhoDev
+
+Programador focado em:
+
+Sites modernos
+Interfaces web
+Bots
+Jogos
+Scripts
+IA
+📜 Licença
+
+Este projeto está sob a licença MIT.
+
+⭐ Apoie o projeto
+
+Se gostou do projeto:
+
+Dê uma estrela ⭐
+Compartilhe
+Faça um fork
+💡 Futuras Atualizações
+Sistema de contas
+Temas personalizados
+Chamada por voz
+IA com memória
+Aplicativo desktop
+App mobile
+Plugins
+Painel admin
+ViquinhoAI
+Modern AI for the web 🚀

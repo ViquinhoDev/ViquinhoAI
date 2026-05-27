@@ -1,4 +1,4 @@
-# ViquinhoAI 🤖
+# ViquinhoAI mini 🤖
 
 Uma IA moderna feita para conversar, ajudar, programar e criar experiências na web.
 
@@ -16,6 +16,10 @@ O ViquinhoAI é um projeto de inteligência artificial focado em:
 
 Criado por **ViquinhoDev**.
 
+**OBS: O ViquinhoAI mini foi desenvolvido como um projeto teste para modelos de novas ediçoes (como: ViquinhoAI code, ViquinhoAI agent).**
+**ViquinhoAI mini é um projeto básico de código aberto para demonstração de como um chatbot pode se comportar.**
+
+*Caso esteja procurando por um chatbot mas eficaz recomendamos que use outra versão como por exemplo:* **ViquinhoAI agent** Para uso mais eficaz. 
 ---
 
 ## 🚀 Funcionalidades

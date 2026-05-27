@@ -23,6 +23,8 @@ Criado e desenvolvido por **ViquinhoDev**.
 *Caso esteja procurando por um chatbot mais eficaz recomendamos que use outra versão como por exemplo:* 
 **ViquinhoAI agent**. 
 
+> [!CAUTION]
+> Este é um comentário visível, discreto e vermelho.
 
 ---
 

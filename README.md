@@ -17,12 +17,11 @@ O ViquinhoAI é um projeto de inteligência artificial focado em:
 Criado e desenvolvido por **ViquinhoDev**.
 
 
-OBS: O ViquinhoAI mini foi desenvolvido como um projeto teste para modelos de novas ediçoes (como: ViquinhoAI code, ViquinhoAI agent).
-ViquinhoAI mini é um projeto básico de código aberto para demonstração de como um chatbot pode se comportar.
+<small>OBS: O ViquinhoAI mini foi desenvolvido como um projeto teste para modelos de novas ediçoes (como: ViquinhoAI code, ViquinhoAI agent).
+ViquinhoAI mini é um projeto básico de código aberto para demonstração de como um chatbot pode se comportar.</small>
 
-*Caso esteja procurando por um chatbot mas eficaz recomendamos que use outra versão como por exemplo:* 
-**ViquinhoAI agent** 
-Para uso mais eficaz. 
+*Caso esteja procurando por um chatbot mais eficaz recomendamos que use outra versão como por exemplo:* 
+**ViquinhoAI agent**. 
 
 
 ---

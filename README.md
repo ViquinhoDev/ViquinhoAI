@@ -26,6 +26,9 @@ Criado e desenvolvido por **ViquinhoDev**.
 > [!CAUTION]
 > Este é um comentário visível, discreto e vermelho.
 
+> [!WARNING]
+> Este texto fica com a borda e o título em vermelho/laranja.
+
 ---
 
 ## 🚀 Funcionalidades
